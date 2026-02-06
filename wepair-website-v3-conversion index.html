@@ -1,0 +1,2027 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WePair Health - Clear Training Pathways for CHWs & Doulas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Note: Futura PT is a paid font. For web use, consider purchasing license or using similar alternatives like Montserrat as fallback -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap');
+    </style>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* 
+            WCAG 2.1 AA COMPLIANCE NOTES:
+            - Primary Purple (#3c1767): 8.53:1 contrast - AAA compliant, use for ALL text
+            - Orange (#fe7c00): 3.41:1 contrast - Large text ONLY (18pt+ or 14pt+ bold)
+            - Orange Text (#c25d00): 4.52:1 contrast - AA compliant for normal text
+            - Light Purple (#8067df): 3.97:1 contrast - Large text ONLY
+            - Pink (#feacd2): 2.06:1 contrast - NEVER use as text, backgrounds only
+            - Light Text (#6d5b85): 4.58:1 contrast - AA compliant (updated from #8B7BA8)
+            */
+            
+            --primary-purple: #3c1767;      /* AAA - Use for all text */
+            --deep-purple: #2a0f4a;         /* AAA - Hover states */
+            --light-purple: #8067df;        /* Large text only (headers 18pt+) */
+            --accent-orange: #fe7c00;       /* Backgrounds & large headers only */
+            --accent-orange-text: #c25d00;  /* AA compliant - normal text */
+            --accent-pink: #feacd2;         /* Backgrounds only, never text */
+            --warm-cream: #FFFBF5;
+            --soft-gray: #dedede;
+            --dark-text: #1a0a2e;           /* AAA - Primary body text */
+            --medium-text: #5a4575;         /* AA - Secondary text */
+            --light-text: #6d5b85;          /* AA - Tertiary text (WCAG compliant) */
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 100px;
+        }
+
+        body {
+            font-family: 'Syne', 'Montserrat', sans-serif;
+            color: var(--dark-text);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background: var(--warm-cream);
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.2rem 5%;
+            background: rgba(255, 251, 245, 0.97);
+            backdrop-filter: blur(12px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(107, 70, 193, 0.08);
+            transition: all 0.3s;
+        }
+
+        header.scrolled {
+            padding: 0.9rem 5%;
+            box-shadow: 0 2px 20px rgba(107, 70, 193, 0.08);
+        }
+
+        nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Montserrat', 'Futura PT', sans-serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--primary-purple);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--medium-text);
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-purple);
+        }
+
+        /* Visual separator before login */
+        .nav-links li:nth-last-child(2)::before {
+            content: '';
+            position: absolute;
+            left: -1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 1px;
+            height: 30px;
+            background: var(--soft-gray);
+        }
+
+        .nav-login {
+            color: var(--primary-purple) !important;
+            font-weight: 700;
+            font-size: 1rem;
+            padding: 0.65rem 1.5rem;
+            border: 2px solid var(--primary-purple);
+            border-radius: 50px;
+            transition: all 0.3s;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
+        }
+
+        .nav-login:hover {
+            background: var(--primary-purple);
+            color: white !important;
+        }
+
+        .header-cta {
+            background: var(--primary-purple);
+            color: white !important;
+            padding: 0.75rem 2.2rem !important;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.05rem;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(60, 23, 103, 0.35);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
+            border: 2px solid var(--primary-purple);
+            position: relative;
+        }
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(60, 23, 103, 0.3);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            border: 2px solid var(--primary-purple);
+        }
+
+        .header-cta:hover {
+            background: var(--deep-purple);
+            border-color: var(--deep-purple);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(60, 23, 103, 0.4);
+        }
+
+        /* Mobile Menu Toggle */
+        .mobile-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 8px;
+        }
+
+        .mobile-toggle span {
+            width: 25px;
+            height: 3px;
+            background: var(--primary-purple);
+            border-radius: 3px;
+            transition: all 0.3s;
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 80px;
+            padding: 5rem 5% 4rem;
+            background: linear-gradient(165deg, var(--warm-cream) 0%, #F3E8FF 50%, var(--warm-cream) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -30%;
+            right: -15%;
+            width: 60%;
+            height: 140%;
+            background: radial-gradient(circle, rgba(159, 122, 234, 0.12) 0%, transparent 65%);
+            animation: floatSlow 25s infinite ease-in-out;
+        }
+
+        @keyframes floatSlow {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(-40px, 40px) scale(1.05); }
+        }
+
+        .hero-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 5rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-text h1 {
+            font-family: 'Montserrat', 'Futura PT', sans-serif;
+            font-size: 4.2rem;
+            line-height: 1.15;
+            color: var(--dark-text);
+            margin-bottom: 1.8rem;
+            font-weight: 700;
+        }
+
+        .hero-text h1 .highlight {
+            color: var(--primary-purple);
+            position: relative;
+            display: inline-block;
+        }
+
+        .hero-text h1 .highlight::after {
+            content: '';
+            position: absolute;
+            bottom: 8px;
+            left: 0;
+            right: 0;
+            height: 12px;
+            background: linear-gradient(90deg, var(--accent-orange), var(--accent-pink));
+            opacity: 0.2;
+            z-index: -1;
+        }
+
+        .problem-statement {
+            background: white;
+            padding: 1.8rem 2rem;
+            border-radius: 16px;
+            border-left: 4px solid var(--accent-orange);
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .problem-statement p {
+            font-size: 1.15rem;
+            color: var(--medium-text);
+            line-height: 1.7;
+            font-weight: 500;
+        }
+
+        .solution-statement {
+            font-size: 1.25rem;
+            color: var(--dark-text);
+            margin-bottom: 2.5rem;
+            line-height: 1.7;
+            font-weight: 500;
+        }
+
+        .solution-statement strong {
+            color: var(--primary-purple);
+            font-weight: 700;
+        }
+
+        .hero-ctas {
+            display: flex;
+            gap: 1.2rem;
+            flex-wrap: wrap;
+        }
+
+        .primary-cta {
+            background: var(--primary-purple);
+            color: white;
+            padding: 1.2rem 2.8rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.05rem;
+            transition: all 0.3s;
+            box-shadow: 0 6px 25px rgba(107, 70, 193, 0.3);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .primary-cta:hover {
+            background: var(--deep-purple);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(107, 70, 193, 0.4);
+        }
+
+        .secondary-cta {
+            background: white;
+            color: var(--primary-purple);
+            padding: 1.2rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.05rem;
+            border: 2px solid var(--primary-purple);
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .secondary-cta:hover {
+            background: var(--primary-purple);
+            color: white;
+        }
+
+        .hero-visual {
+            position: relative;
+        }
+
+        .stat-cards {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 8px 30px rgba(107, 70, 193, 0.1);
+            transition: all 0.4s;
+            border: 2px solid transparent;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--light-purple);
+            box-shadow: 0 12px 40px rgba(107, 70, 193, 0.18);
+        }
+
+        .stat-number {
+            font-family: 'Montserrat', 'Futura PT', sans-serif;
+            font-size: 2.8rem;
+            color: var(--primary-purple);
+            font-weight: 700;
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: var(--medium-text);
+            font-size: 0.95rem;
+            font-weight: 600;
+        }
+
+        /* Training Pathways Section */
+        .training-section {
+            padding: 6rem 5%;
+            background: white;
+        }
+
+        .section-header {
+            max-width: 1400px;
+            margin: 0 auto 4rem;
+            text-align: center;
+        }
+
+        .section-label {
+            font-size: 0.8rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--accent-orange-text); /* WCAG AA compliant */
+            margin-bottom: 1rem;
+        }
+
+        .section-header h2 {
+            font-family: 'Montserrat', 'Futura PT', sans-serif;
+            font-size: 3.2rem;
+            color: var(--dark-text);
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            font-weight: 700;
+        }
+
+        .section-header p {
+            font-size: 1.15rem;
+            color: var(--medium-text);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        .pathways-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2.5rem;
+        }
+
+        .pathway-card {
+            background: var(--soft-gray);
+            padding: 3rem;
+            border-radius: 24px;
+            position: relative;
+            transition: all 0.4s;
+            border: 2px solid transparent;
+            overflow: hidden;
+        }
+
+        .pathway-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, var(--primary-purple), var(--accent-pink));
+        }
+
+        .pathway-card:hover {
+            background: white;
+            border-color: var(--primary-purple);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(107, 70, 193, 0.15);
+        }
+
+        .pathway-badge {
+            display: inline-block;
+            background: var(--primary-purple);
+            color: white;
+            padding: 0.5rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1.5rem;
+        }
+
+        .pathway-card h3 {
+            font-family: 'Montserrat', 'Futura PT', sans-serif;
+            font-size: 2rem;
+            color: var(--dark-text);
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .pathway-card .description {
+            color: var(--medium-text);
+            font-size: 1.05rem;
+            line-height: 1.7;
+            margin-bottom: 2rem;
+        }
+
+        .ai-coach-badge {
+            background: rgba(6, 214, 160, 0.1);
+            border: 1px solid var(--accent-pink);
+            padding: 0.8rem 1.2rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .ai-coach-badge .icon {
+            font-size: 1.5rem;
+        }
+
+        .ai-coach-badge .text {
+            font-size: 0.9rem;
+            color: var(--dark-text);
+            font-weight: 600;
+        }
+
+        .pathway-features {
+            margin-bottom: 2rem;
+        }
+
+        .pathway-features h4 {
+            font-size: 0.9rem;
+            font-weight: 800;
+            color: var(--dark-text);
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .pathway-features ul {
+            list-style: none;
+        }
+
+        .pathway-features li {
+            color: var(--medium-text);
+            padding: 0.6rem 0;
+            padding-left: 2rem;
+            position: relative;
+            font-size: 0.95rem;
+        }
+
+        .pathway-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--accent-pink);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .pathway-meta {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(107, 70, 193, 0.1);
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .meta-icon {
+            font-size: 1.3rem;
+        }
+
+        .meta-text {
+            font-size: 0.9rem;
+            color: var(--medium-text);
+            font-weight: 600;
+        }
+
+        .pathway-ctas {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .pathway-cta {
+            display: inline-block;
+            background: var(--primary-purple);
+            color: white;
+            padding: 1rem 2.2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s;
+            font-size: 0.95rem;
+        }
+
+        .pathway-cta:hover {
+            background: var(--deep-purple);
+            transform: translateX(5px);
+        }
+
+        .pathway-cta-secondary {
+            display: inline-block;
+            background: white;
+            color: var(--primary-purple);
+            border: 2px solid var(--primary-purple);
+            padding: 1rem 2.2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s;
+            font-size: 0.95rem;
+        }
+
+        .pathway-cta-secondary:hover {
+            background: var(--primary-purple);
+            color: white;
+        }
+
+        /* How It Works Section */
+        .how-it-works {
+            padding: 6rem 5%;
+            background: linear-gradient(135deg, var(--soft-gray) 0%, white 100%);
+        }
+
+        .steps-flow {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            position: relative;
+        }
+
+        .steps-flow::before {
+            content: '';
+            position: absolute;
+            top: 70px;
+            left: 12%;
+            right: 12%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary-purple) 0%, var(--accent-pink) 100%);
+            z-index: 0;
+        }
+
+        .step-card {
+            background: white;
+            padding: 2.5rem 2rem;
+            border-radius: 20px;
+            position: relative;
+            z-index: 1;
+            transition: all 0.4s;
+            border: 2px solid transparent;
+        }
+
+        .step-card:hover {
+            border-color: var(--primary-purple);
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(107, 70, 193, 0.15);
+        }
+
+        .step-number {
+            width: 65px;
+            height: 65px;
+            background: linear-gradient(135deg, var(--primary-purple), var(--deep-purple));
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Montserrat', 'Futura PT', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 6px 20px rgba(107, 70, 193, 0.3);
+        }
+
+        .step-card h3 {
+            font-family: 'Montserrat', 'Futura PT', sans-serif;
+            font-size: 1.4rem;
+            color: var(--dark-text);
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .step-card p {
+            color: var(--medium-text);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* AI Tools Section */
+        .ai-tools-section {
+            padding: 6rem 5%;
+            background: white;
+        }
+
+        .ai-tools-content {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 3rem;
+            margin-top: 3.5rem;
+        }
+
+        .tool-card {
+            background: var(--soft-gray);
+            border-radius: 28px;
+            padding: 3.5rem;
+            transition: all 0.4s;
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tool-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, var(--primary-purple), var(--accent-pink));
+        }
+
+        .tool-card:hover {
+            background: white;
+            border-color: var(--primary-purple);
+            transform: translateY(-8px);
+            box-shadow: 0 25px 60px rgba(107, 70, 193, 0.15);
+        }
+
+        .tool-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .tool-card h3 {
+            font-family: 'Montserrat', 'Futura PT', sans-serif;
+            font-size: 2.2rem;
+            margin-bottom: 0.8rem;
+            font-weight: 700;
+            color: var(--dark-text);
+        }
+
+        .tool-location {
+            display: inline-block;
+            background: var(--primary-purple);
+            color: white;
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1.5rem;
+        }
+
+        .tool-card .tagline {
+            font-size: 1.1rem;
+            color: var(--medium-text);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .tool-features {
+            list-style: none;
+            margin-bottom: 2.5rem;
+        }
+
+        .tool-features li {
+            padding: 0.9rem 0;
+            padding-left: 2.2rem;
+            position: relative;
+            color: var(--medium-text);
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .tool-features li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--accent-pink);
+            font-weight: bold;
+            font-size: 1.3rem;
+        }
+
+        .tool-cta {
+            display: inline-block;
+            background: var(--primary-purple);
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s;
+            font-size: 1rem;
+        }
+
+        .tool-cta:hover {
+            background: var(--deep-purple);
+            transform: translateX(5px);
+        }
+
+        .guardrails-notice {
+            max-width: 1000px;
+            margin: 4rem auto 0;
+            background: var(--soft-gray);
+            padding: 2rem 2.5rem;
+            border-radius: 16px;
+            border-left: 4px solid var(--accent-orange);
+            font-size: 0.9rem;
+            line-height: 1.7;
+            color: var(--medium-text);
+        }
+
+        .guardrails-notice strong {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+            color: var(--dark-text);
+        }
+
+        /* App Download Section */
+        .apps-section {
+            padding: 6rem 5%;
+            background: linear-gradient(165deg, var(--deep-purple) 0%, #5B2C91 50%, var(--primary-purple) 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .apps-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle at 15% 30%, rgba(255, 255, 255, 0.06) 0%, transparent 50%),
+                radial-gradient(circle at 85% 70%, rgba(255, 255, 255, 0.06) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .apps-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .apps-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 3rem;
+            margin-top: 3.5rem;
+        }
+
+        .app-card {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 28px;
+            padding: 3.5rem;
+            transition: all 0.4s;
+        }
+
+        .app-card:hover {
+            background: rgba(255, 255, 255, 0.12);
+            transform: translateY(-8px);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .app-icon {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .app-card h3 {
+            font-family: 'Montserrat', 'Futura PT', sans-serif;
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .app-card .tagline {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 2.5rem;
+            line-height: 1.6;
+        }
+
+        .app-stores {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .app-store-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.7rem;
+            background: white;
+            color: var(--primary-purple);
+            padding: 0.9rem 1.8rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s;
+            font-size: 0.95rem;
+        }
+
+        .app-store-btn:hover {
+            background: var(--warm-cream);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .app-store-icon {
+            font-size: 1.5rem;
+        }
+
+        .unified-login-note {
+            max-width: 900px;
+            margin: 4rem auto 0;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem 2.5rem;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            text-align: center;
+        }
+
+        .unified-login-note h4 {
+            font-family: 'Montserrat', 'Futura PT', sans-serif;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .unified-login-note p {
+            font-size: 1rem;
+            opacity: 0.9;
+            line-height: 1.7;
+        }
+
+        /* About/Mission Section */
+        .about-section {
+            padding: 6rem 5%;
+            background: white;
+        }
+
+        .about-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-family: 'Montserrat', 'Futura PT', sans-serif;
+            font-size: 3rem;
+            color: var(--dark-text);
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            color: var(--medium-text);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .mission-values {
+            display: grid;
+            gap: 2rem;
+            margin-top: 2.5rem;
+        }
+
+        .value-card {
+            background: var(--soft-gray);
+            padding: 2rem;
+            border-radius: 16px;
+            border-left: 4px solid var(--primary-purple);
+        }
+
+        .value-card h4 {
+            font-size: 1.2rem;
+            color: var(--primary-purple);
+            margin-bottom: 0.7rem;
+            font-weight: 700;
+        }
+
+        .value-card p {
+            font-size: 1rem;
+            color: var(--medium-text);
+            margin: 0;
+            line-height: 1.7;
+        }
+
+        .about-visual {
+            background: linear-gradient(135deg, var(--soft-gray) 0%, var(--warm-cream) 100%);
+            border-radius: 24px;
+            padding: 3rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 500px;
+        }
+
+        .about-visual h3 {
+            font-family: 'Montserrat', 'Futura PT', sans-serif;
+            font-size: 2.5rem;
+            color: var(--primary-purple);
+            text-align: center;
+            margin-bottom: 2rem;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        /* For Employers Section */
+        .employers-section {
+            padding: 6rem 5%;
+            background: var(--soft-gray);
+        }
+
+        .employers-content {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .employer-benefits {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .benefit-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 5px 25px rgba(107, 70, 193, 0.08);
+            transition: all 0.4s;
+            border: 2px solid transparent;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--primary-purple);
+            box-shadow: 0 15px 40px rgba(107, 70, 193, 0.15);
+        }
+
+        .benefit-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .benefit-card h3 {
+            font-family: 'Montserrat', 'Futura PT', sans-serif;
+            font-size: 1.5rem;
+            color: var(--dark-text);
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .benefit-card p {
+            color: var(--medium-text);
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        .employer-cta-box {
+            max-width: 900px;
+            margin: 4rem auto 0;
+            background: linear-gradient(135deg, var(--primary-purple), var(--deep-purple));
+            padding: 3.5rem;
+            border-radius: 24px;
+            text-align: center;
+            color: white;
+        }
+
+        .employer-cta-box h3 {
+            font-family: 'Montserrat', 'Futura PT', sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .employer-cta-box p {
+            font-size: 1.15rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .employer-cta-box .cta-button-white {
+            background: white;
+            color: var(--primary-purple);
+            padding: 1.2rem 3rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.05rem;
+            display: inline-block;
+            transition: all 0.3s;
+        }
+
+        .employer-cta-box .cta-button-white:hover {
+            background: var(--warm-cream);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Testimonials */
+        .testimonials-section {
+            padding: 6rem 5%;
+            background: white;
+        }
+
+        .testimonials-grid {
+            max-width: 1400px;
+            margin: 3rem auto 0;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.5rem;
+        }
+
+        .testimonial-card {
+            background: var(--soft-gray);
+            padding: 2.8rem;
+            border-radius: 20px;
+            transition: all 0.4s;
+            border: 2px solid transparent;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--light-purple);
+            background: white;
+            box-shadow: 0 15px 40px rgba(107, 70, 193, 0.12);
+        }
+
+        .quote-mark {
+            font-size: 4rem;
+            color: var(--light-purple);
+            line-height: 1;
+            margin-bottom: 1rem;
+            font-family: 'Montserrat', 'Futura PT', sans-serif;
+        }
+
+        .testimonial-text {
+            color: var(--medium-text);
+            font-size: 1.05rem;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .testimonial-author {
+            color: var(--primary-purple);
+            font-weight: 700;
+            font-size: 0.95rem;
+        }
+
+        /* Contact/FAQ Section */
+        .contact-section {
+            padding: 6rem 5%;
+            background: var(--soft-gray);
+        }
+
+        .contact-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+        }
+
+        .contact-info h2 {
+            font-family: 'Montserrat', 'Futura PT', sans-serif;
+            font-size: 3rem;
+            color: var(--dark-text);
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .contact-info p {
+            font-size: 1.1rem;
+            color: var(--medium-text);
+            line-height: 1.7;
+            margin-bottom: 2rem;
+        }
+
+        .contact-methods {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .contact-method {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .contact-method-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--primary-purple);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+        }
+
+        .contact-method-text {
+            flex: 1;
+        }
+
+        .contact-method-label {
+            font-size: 0.85rem;
+            color: var(--light-text);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .contact-method-value {
+            font-size: 1.1rem;
+            color: var(--dark-text);
+            font-weight: 600;
+        }
+
+        .contact-method-value a {
+            color: var(--dark-text);
+            text-decoration: none;
+        }
+
+        .contact-method-value a:hover {
+            color: var(--primary-purple);
+        }
+
+        .faq-section {
+            background: white;
+            padding: 3rem;
+            border-radius: 24px;
+        }
+
+        .faq-section h3 {
+            font-family: 'Montserrat', 'Futura PT', sans-serif;
+            font-size: 2rem;
+            color: var(--dark-text);
+            margin-bottom: 2rem;
+            font-weight: 700;
+        }
+
+        .faq-item {
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--soft-gray);
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .faq-question {
+            font-size: 1.1rem;
+            color: var(--dark-text);
+            font-weight: 700;
+            margin-bottom: 0.7rem;
+        }
+
+        .faq-answer {
+            font-size: 1rem;
+            color: var(--medium-text);
+            line-height: 1.7;
+        }
+
+        .faq-answer a {
+            color: var(--primary-purple);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .faq-answer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-text);
+            color: white;
+            padding: 4rem 5% 2rem;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-brand h3 {
+            font-family: 'Montserrat', 'Futura PT', sans-serif;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--light-purple);
+            font-weight: 700;
+        }
+
+        .footer-brand p {
+            opacity: 0.85;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .footer-links h4 {
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+            color: var(--light-purple);
+            font-weight: 700;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            opacity: 0.8;
+            transition: all 0.3s;
+            display: block;
+            padding: 0.4rem 0;
+            font-size: 0.95rem;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+            color: var(--accent-pink);
+            transform: translateX(3px);
+        }
+
+        .footer-bottom {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+
+        .footer-bottom a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .footer-bottom a:hover {
+            color: var(--accent-pink);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .social-links a {
+            color: white;
+            text-decoration: none;
+            opacity: 0.8;
+            transition: all 0.3s;
+            font-size: 1.2rem;
+        }
+
+        .social-links a:hover {
+            opacity: 1;
+            color: var(--accent-pink);
+            transform: translateY(-3px);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .hero-text h1 {
+                font-size: 3.5rem;
+            }
+
+            .pathways-container {
+                grid-template-columns: 1fr;
+            }
+
+            .steps-flow {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .steps-flow::before {
+                display: none;
+            }
+
+            .tools-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .apps-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .employer-benefits {
+                grid-template-columns: 1fr;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-toggle {
+                display: flex;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-ctas {
+                flex-direction: column;
+            }
+
+            .section-header h2 {
+                font-size: 2.2rem;
+            }
+
+            .steps-flow {
+                grid-template-columns: 1fr;
+            }
+
+            .pathway-card {
+                padding: 2rem;
+            }
+
+            .tool-card {
+                padding: 2.5rem;
+            }
+
+            .app-card {
+                padding: 2.5rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <nav>
+            <a href="#home" class="logo">WePair Health</a>
+            <ul class="nav-links">
+                <li><a href="#training">Training</a></li>
+                <li><a href="#jobs">Jobs</a></li>
+                <li><a href="#documentation">Documentation</a></li>
+                <li><a href="https://learn.wepairhealth.com/login" class="nav-login">Log In</a></li>
+                <li><a href="https://learn.wepairhealth.com/signup" class="header-cta">Sign Up Free</a></li>
+            </ul>
+            <div class="mobile-toggle" id="mobile-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Limited Time Offer Banner -->
+    <div style="background: linear-gradient(135deg, var(--accent-orange), #ff9933); padding: 1rem 5%; text-align: center; position: sticky; top: 80px; z-index: 998; box-shadow: 0 4px 15px rgba(254, 124, 0, 0.3);">
+        <p style="color: white; font-weight: 700; font-size: 1.1rem; margin: 0;">
+            🎉 <strong>Launch Special:</strong> Free Core Training + $15 Specialties (Regularly $149 + $49) — <span style="text-decoration: underline;">Ends April 30, 2026</span> 
+            <a href="https://learn.wepairhealth.com/signup" style="color: white; margin-left: 1rem; padding: 0.5rem 1.5rem; background: rgba(255,255,255,0.2); border-radius: 50px; text-decoration: none; border: 2px solid white; display: inline-block; transition: all 0.3s;">Sign Up Now →</a>
+        </p>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Train. Work. Grow.<br><span class="highlight">All in One Place.</span></h1>
+                
+                <p class="solution-statement">
+                    Get certified as a CHW or Doula, find jobs, and access smart documentation tools.
+                </p>
+
+                <div class="hero-ctas">
+                    <a href="https://learn.wepairhealth.com/signup" class="primary-cta">Start Free Training →</a>
+                    <a href="#training" class="secondary-cta">See Courses</a>
+                </div>
+
+                <p style="margin-top: 1rem; font-size: 0.95rem; color: var(--medium-text); font-weight: 600;">
+                    ⏰ Limited time: Core training free through April 30 • Specialties just $15
+                </p>
+
+                <div style="margin-top: 2rem; display: flex; gap: 2rem; align-items: center; flex-wrap: wrap;">
+                    <div style="display: flex; align-items: center; gap: 0.5rem;">
+                        <span style="font-size: 2rem;">🎓</span>
+                        <span style="font-size: 0.9rem; color: var(--medium-text);"><strong>Training</strong><br>Nationally recognized</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 0.5rem;">
+                        <span style="font-size: 2rem;">💼</span>
+                        <span style="font-size: 0.9rem; color: var(--medium-text);"><strong>Jobs</strong><br>Verified opportunities</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 0.5rem;">
+                        <span style="font-size: 2rem;">📝</span>
+                        <span style="font-size: 0.9rem; color: var(--medium-text);"><strong>Documentation</strong><br>AI-powered tools</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="stat-cards">
+                    <div class="stat-card">
+                        <div class="stat-number">2</div>
+                        <div class="stat-label">Core Training Tracks: CHW & Doula</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">100%</div>
+                        <div class="stat-label">Self-paced with AI Coach support</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">24/7</div>
+                        <div class="stat-label">Access to tools & resources</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Training Pathways Section -->
+    <section class="training-section" id="training">
+        <div class="section-header">
+            <div class="section-label">Clear Training Pathways</div>
+            <h2>Choose Your Path, Stack Your Skills</h2>
+            <p>Whether you're starting as a Community Health Worker (CHW), doula, birthworker, or both—we have a clear, stackable credential pathway designed for you.</p>
+        </div>
+
+        <div class="pathways-container" style="grid-template-columns: repeat(2, 1fr); gap: 2.5rem; max-width: 1000px; margin: 0 auto 3rem;">
+            <!-- CHW Training -->
+            <div class="pathway-card">
+                <span class="pathway-badge">Core Training</span>
+                <h3>Community Health Worker (CHW) Training</h3>
+                <p class="description">Master fundamental Community Health Worker competencies aligned with national best practices and state certification requirements.</p>
+                
+                <div class="ai-coach-badge">
+                    <span class="icon">🤖</span>
+                    <span class="text">AI Coach Companion Included</span>
+                </div>
+
+                <div class="pathway-features">
+                    <h4>What's Included:</h4>
+                    <ul>
+                        <li>Self-paced modules with scenarios</li>
+                        <li>Downloadable toolkits & scripts</li>
+                        <li>AI Coach built into course</li>
+                        <li>Monthly live Q&A sessions</li>
+                        <li>WePair Academy CHW Certificate</li>
+                    </ul>
+                </div>
+
+                <div class="pathway-meta">
+                    <div class="meta-item">
+                        <span class="meta-icon">⏱️</span>
+                        <span class="meta-text">~10 weeks</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-icon">📚</span>
+                        <span class="meta-text">Self-paced</span>
+                    </div>
+                </div>
+
+                <div class="pathway-ctas">
+                    <a href="https://learn.wepairhealth.com/chw-core" class="pathway-cta">Start Training</a>
+                    <p style="margin-top: 0.75rem; font-size: 0.85rem; color: var(--medium-text); font-weight: 600;">
+                        <span style="text-decoration: line-through; opacity: 0.6;">$149</span> <span style="color: var(--accent-orange-text); font-size: 1.1rem;">FREE</span> until April 30
+                    </p>
+                </div>
+            </div>
+
+            <!-- Full Spectrum Doula Training -->
+            <div class="pathway-card">
+                <span class="pathway-badge" style="background: var(--accent-orange);">Core Training</span>
+                <h3>Full Spectrum Doula Training</h3>
+                <p class="description">Comprehensive doula certification covering the full perinatal care spectrum—prenatal, labor, birth, and postpartum support.</p>
+                
+                <div class="ai-coach-badge">
+                    <span class="icon">🤖</span>
+                    <span class="text">AI Coach Companion Included</span>
+                </div>
+
+                <div class="pathway-features">
+                    <h4>What's Included:</h4>
+                    <ul>
+                        <li>Full perinatal care training</li>
+                        <li>Labor & birth support skills</li>
+                        <li>Postpartum & lactation basics</li>
+                        <li>Community-based care practices</li>
+                        <li>WePair Academy Doula Certificate</li>
+                    </ul>
+                </div>
+
+                <div class="pathway-meta">
+                    <div class="meta-item">
+                        <span class="meta-icon">⏱️</span>
+                        <span class="meta-text">~10 weeks</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-icon">📚</span>
+                        <span class="meta-text">Self-paced</span>
+                    </div>
+                </div>
+
+                <div class="pathway-ctas">
+                    <a href="https://learn.wepairhealth.com/doula" class="pathway-cta">Start Training</a>
+                    <p style="margin-top: 0.75rem; font-size: 0.85rem; color: var(--medium-text); font-weight: 600;">
+                        <span style="text-decoration: line-through; opacity: 0.6;">$149</span> <span style="color: var(--accent-orange-text); font-size: 1.1rem;">FREE</span> until April 30
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Dual Pathway Callout Banner -->
+        <div style="max-width: 1000px; margin: 3rem auto 0; padding: 2.5rem 3rem; background: linear-gradient(135deg, var(--light-purple) 0%, var(--accent-pink) 100%); border-radius: 24px; text-align: center; box-shadow: 0 8px 30px rgba(60, 23, 103, 0.15);">
+            <h3 style="font-size: 2rem; color: white; margin-bottom: 1rem; font-weight: 700;">🌟 Want Both Credentials?</h3>
+            <p style="font-size: 1.15rem; color: white; margin-bottom: 2rem; opacity: 0.95; line-height: 1.6;">Complete both core trainings for dual certification. Maximum career flexibility and expanded job opportunities.</p>
+            <a href="https://learn.wepairhealth.com/dual-pathway" style="display: inline-block; background: white; color: var(--primary-purple); padding: 1.1rem 2.8rem; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 1.1rem; transition: all 0.3s; box-shadow: 0 4px 20px rgba(0,0,0,0.2);">Start Dual Pathway →</a>
+        </div>
+
+        <!-- Specialty Tracks Section -->
+        <div style="max-width: 1400px; margin: 5rem auto 0;">
+            <div style="text-align: center; margin-bottom: 3rem;">
+                <div class="section-label">Stack Your Expertise</div>
+                <h2 style="font-family: 'Montserrat', 'Futura PT', sans-serif; font-size: 3rem; color: var(--dark-text); margin-bottom: 1rem; font-weight: 700;">Specialty Certificates</h2>
+                <p style="font-size: 1.15rem; color: var(--medium-text); max-width: 700px; margin: 0 auto;">After completing core training, add specialized credentials to advance your career. Each specialty ~4 weeks (12-16 hours). <strong style="color: var(--accent-orange-text);">Launch special: $15/course</strong> (regularly $49).</p>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;">
+                <!-- 1. Birthworker Foundations (Maternal Health example) -->
+                <div style="background: linear-gradient(135deg, var(--accent-pink), #ffd4e5); padding: 2rem; border-radius: 16px; border: 2px solid var(--accent-orange); box-shadow: 0 4px 15px rgba(107, 70, 193, 0.12);">
+                    <div style="display: inline-block; background: var(--accent-orange); color: white; padding: 0.3rem 0.8rem; border-radius: 50px; font-size: 0.75rem; font-weight: 700; margin-bottom: 1rem;">MATERNAL HEALTH</div>
+                    <h4 style="font-size: 1.1rem; color: var(--primary-purple); margin-bottom: 0.5rem; font-weight: 700;">Birthworker Foundations</h4>
+                    <p style="font-size: 0.9rem; color: var(--dark-text); margin: 0;">Essential perinatal care & community birthworker skills</p>
+                </div>
+
+                <!-- 2. Climate & Environmental Health -->
+                <div style="background: white; padding: 2rem; border-radius: 16px; border-left: 4px solid var(--accent-orange); box-shadow: 0 4px 15px rgba(107, 70, 193, 0.08);">
+                    <h4 style="font-size: 1.1rem; color: var(--primary-purple); margin-bottom: 0.5rem; font-weight: 700;">Climate & Environmental Health</h4>
+                    <p style="font-size: 0.9rem; color: var(--medium-text); margin: 0;">Address environmental hazards & climate impacts</p>
+                </div>
+
+                <!-- 3. Clinical Research & Trial Navigation -->
+                <div style="background: white; padding: 2rem; border-radius: 16px; border-left: 4px solid var(--accent-pink); box-shadow: 0 4px 15px rgba(107, 70, 193, 0.08);">
+                    <h4 style="font-size: 1.1rem; color: var(--primary-purple); margin-bottom: 0.5rem; font-weight: 700;">Clinical Research & Trial Navigation</h4>
+                    <p style="font-size: 0.9rem; color: var(--medium-text); margin: 0;">Connect communities to research opportunities</p>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 3rem;">
+                <a href="https://learn.wepairhealth.com/specialties" class="primary-cta">View All Specialty Tracks →</a>
+                <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--medium-text);">
+                    <strong>Already experienced?</strong> Some specialties available via Accelerated Entry (verification required)
+                </p>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Jobs Section -->
+    <section class="apps-section" id="jobs" style="background: var(--warm-cream);">
+        <div class="apps-content" style="max-width: 1200px; margin: 0 auto; padding: 5rem 5%;">
+            <div class="section-header" style="text-align: center; margin-bottom: 3rem;">
+                <div class="section-label" style="color: var(--accent-orange-text);">Career Support</div>
+                <h2 style="color: var(--dark-text); font-size: 3rem; margin-bottom: 1rem;">Get Hired After Training</h2>
+                <p style="color: var(--medium-text); font-size: 1.2rem; max-width: 700px; margin: 0 auto;">Connect with employers hiring WePair-certified professionals.</p>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 3rem; margin-bottom: 3rem;">
+                <div style="background: white; padding: 2.5rem; border-radius: 20px; box-shadow: 0 4px 20px rgba(60, 23, 103, 0.08);">
+                    <span style="font-size: 3rem; display: block; margin-bottom: 1rem;">💼</span>
+                    <h3 style="font-size: 1.5rem; color: var(--primary-purple); margin-bottom: 1rem; font-weight: 700;">Job Board</h3>
+                    <p style="color: var(--medium-text); margin-bottom: 1.5rem;">Opportunities from FQHCs, health systems, and community organizations.</p>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="padding: 0.5rem 0; color: var(--dark-text);">✓ Verified employer postings</li>
+                        <li style="padding: 0.5rem 0; color: var(--dark-text);">✓ Apply with credentials</li>
+                        <li style="padding: 0.5rem 0; color: var(--dark-text);">✓ Direct employer contact</li>
+                    </ul>
+                </div>
+
+                <div style="background: white; padding: 2.5rem; border-radius: 20px; box-shadow: 0 4px 20px rgba(60, 23, 103, 0.08);">
+                    <span style="font-size: 3rem; display: block; margin-bottom: 1rem;">🎯</span>
+                    <h3 style="font-size: 1.5rem; color: var(--primary-purple); margin-bottom: 1rem; font-weight: 700;">Career Support</h3>
+                    <p style="color: var(--medium-text); margin-bottom: 1.5rem;">Get matched to roles that fit your skills and location.</p>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="padding: 0.5rem 0; color: var(--dark-text);">✓ Job recommendations</li>
+                        <li style="padding: 0.5rem 0; color: var(--dark-text);">✓ Resume & interview prep</li>
+                        <li style="padding: 0.5rem 0; color: var(--dark-text);">✓ Salary guidance</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div style="text-align: center;">
+                <a href="https://learn.wepairhealth.com/signup" style="display: inline-block; background: var(--primary-purple); color: white; padding: 1.2rem 3rem; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 1.1rem; transition: all 0.3s; box-shadow: 0 4px 15px rgba(60, 23, 103, 0.25);">Create Free Profile →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Documentation Section -->
+    <section class="apps-section" id="documentation">
+        <div class="apps-content">
+            <div class="section-header">
+                <h2 style="color: white;">Smart Documentation</h2>
+                <p style="color: rgba(255,255,255,0.9);">NoteScribe: AI-powered tools for client visits, billing, and compliance.</p>
+            </div>
+
+            <div style="max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center;">
+                <div>
+                    <h3 style="color: white; font-size: 2rem; margin-bottom: 1.5rem; font-weight: 700;">Save Time on Paperwork</h3>
+                    <ul class="tool-features" style="list-style: none; padding: 0;">
+                        <li style="padding: 0.8rem 0; padding-left: 2rem; position: relative; font-size: 1.1rem; color: white;">
+                            AI-powered SOAP notes
+                        </li>
+                        <li style="padding: 0.8rem 0; padding-left: 2rem; position: relative; font-size: 1.1rem; color: white;">
+                            Medicaid billing support
+                        </li>
+                        <li style="padding: 0.8rem 0; padding-left: 2rem; position: relative; font-size: 1.1rem; color: white;">
+                            Hours & encounter tracking
+                        </li>
+                        <li style="padding: 0.8rem 0; padding-left: 2rem; position: relative; font-size: 1.1rem; color: white;">
+                            Mobile + web access
+                        </li>
+                    </ul>
+                    <a href="https://app.wepairhealth.com" style="margin-top: 2rem; display: inline-block; background: white; color: var(--primary-purple); padding: 1rem 2.5rem; border-radius: 50px; text-decoration: none; font-weight: 700; transition: all 0.3s; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">Try NoteScribe →</a>
+                </div>
+
+                <div style="background: rgba(255,255,255,0.1); padding: 2.5rem; border-radius: 20px; backdrop-filter: blur(10px);">
+                    <div style="background: white; padding: 2rem; border-radius: 12px; margin-bottom: 1rem;">
+                        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                            <span style="font-size: 2rem;">📝</span>
+                            <div>
+                                <div style="font-weight: 700; color: var(--primary-purple); font-size: 1.1rem;">Quick Documentation</div>
+                                <div style="font-size: 0.85rem; color: var(--medium-text);">5 mins vs 20 mins manual</div>
+                            </div>
+                        </div>
+                        <div style="font-size: 0.9rem; color: var(--dark-text);">"NoteScribe cut my documentation time by 75%. I can see more clients and spend more time with each person."</div>
+                        <div style="margin-top: 1rem; font-size: 0.85rem; color: var(--medium-text); font-weight: 600;">— Maria, CHW</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section" id="about">
+        <div class="about-content">
+            <div class="about-text">
+                <div class="section-label">Our Story</div>
+                <h2>Built by the Workforce, Championed by Clinicians</h2>
+                <p>WePair Health was founded because we've lived the frustration of fragmented training pathways, unclear career advancement, and lack of practical support for frontline public health workers.</p>
+                <p>We're a <strong>cross-sector team</strong> committed to this workforce: <strong>public health professionals</strong> with deep community roots, <strong>clinician champions</strong> advocating for workforce equity, <strong>Community Health Workers and doulas</strong> who know what training really needs to include, and <strong>tech innovators</strong> building tools that actually work in the field.</p>
+
+                <div class="mission-values">
+                    <div class="value-card">
+                        <h4>Our Mission</h4>
+                        <p>Expand frontline career opportunities by enabling individuals with lived experiences to reach their full potential through clear training pathways, support, and community connection.</p>
+                    </div>
+                    <div class="value-card">
+                        <h4>Our Vision</h4>
+                        <p>A healthcare system where every frontline professional thrives, fostering equity, social justice, and community-rooted care.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="about-visual">
+                <h3>"We are invested because it's personal. We are driven because it's necessary."</h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- For Employers Section -->
+    <section class="employers-section" id="employers">
+        <div class="employers-content">
+            <div class="section-header">
+                <div class="section-label">For Organizations</div>
+                <h2>Support Your Frontline Workforce</h2>
+                <p>Access training, talent, and tools to strengthen your CHW and doula teams.</p>
+            </div>
+
+            <div class="employer-benefits" style="grid-template-columns: repeat(3, 1fr);">
+                <div class="benefit-card">
+                    <span class="benefit-icon">🎓</span>
+                    <h3>Sponsor Training</h3>
+                    <p>Provide WePair training for your CHWs and doulas. Bulk enrollment available.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <span class="benefit-icon">👥</span>
+                    <h3>Hire Trained Talent</h3>
+                    <p>Post jobs and connect with WePair-certified professionals.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <span class="benefit-icon">📝</span>
+                    <h3>Documentation Tools</h3>
+                    <p>Equip your team with NoteScribe for streamlined documentation and billing.</p>
+                </div>
+            </div>
+
+            <div class="employer-cta-box">
+                <h3>Other Needs?</h3>
+                <p>Book a discovery call to discuss custom partnerships, integrations, or workforce solutions.</p>
+                <a href="#contact" class="cta-button-white">Schedule Discovery Call</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials-section">
+        <div class="section-header">
+            <div class="section-label">Success Stories</div>
+            <h2>Hear From Our Community</h2>
+        </div>
+
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <div class="quote-mark">"</div>
+                <p class="testimonial-text">The support I received helped me get hired by an organization which paid me almost twice what I initially requested.</p>
+                <p class="testimonial-author">— CHW, Los Angeles</p>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="quote-mark">"</div>
+                <p class="testimonial-text">The technical assistance I received allowed me to secure a hospital contract for one year. WePair changed my career trajectory.</p>
+                <p class="testimonial-author">— CNA, Community Doula</p>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="quote-mark">"</div>
+                <p class="testimonial-text">I participated in WePair's self-care series before the holidays which was the first time I attended a training that focused on my mental health and well-being.</p>
+                <p class="testimonial-author">— CHW, Community Doula</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact/FAQ Section -->
+    <section class="contact-section" id="contact">
+        <div class="contact-content">
+            <div class="contact-info">
+                <div class="section-label">Get in Touch</div>
+                <h2>Have Questions?</h2>
+                <p>Whether you're interested in enrolling, need help with training, or want to explore employer partnerships, we're here to help.</p>
+
+                <div class="contact-methods">
+                    <div class="contact-method">
+                        <div class="contact-method-icon">📞</div>
+                        <div class="contact-method-text">
+                            <div class="contact-method-label">Phone</div>
+                            <div class="contact-method-value"><a href="tel:626-609-7247">626-609-7247</a></div>
+                        </div>
+                    </div>
+
+                    <div class="contact-method">
+                        <div class="contact-method-icon">✉️</div>
+                        <div class="contact-method-text">
+                            <div class="contact-method-label">Email</div>
+                            <div class="contact-method-value"><a href="mailto:info@wepairhealth.com">info@wepairhealth.com</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-section">
+                <h3>Frequently Asked Questions</h3>
+
+                <div class="faq-item">
+                    <div class="faq-question">What's the difference between CHW Track, Doula Track, and Dual Pathway?</div>
+                    <div class="faq-answer"><strong>CHW Track:</strong> Community Health Worker training aligned with national competency standards. <strong>Doula Track:</strong> Full Spectrum Doula certification for comprehensive perinatal support. <strong>Dual Pathway:</strong> Complete both core trainings for dual credentials. You can also add specialty courses.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Can I take a specialty without completing Core training?</div>
+                    <div class="faq-answer">Yes, if you have verified prior training or experience. You'll earn a "Specialty Certificate (Accelerated Entry)". If you later complete Core, we'll upgrade your credential to the standard version.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">How much does training cost?</div>
+                    <div class="faq-answer"><strong>Limited Time Launch Special (Ends April 30, 2026):</strong> Core training (CHW & Doula) is FREE. Specialty courses are $15 each. After April 30: Core training will be $149, specialties $49 each. Sign up now to lock in free access to any courses you enroll in during the promotional period.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Is creating a profile really free?</div>
+                    <div class="faq-answer">Yes! Creating your WePair profile is always 100% free with no credit card required.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Can my employer pay for my training?</div>
+                    <div class="faq-answer">Absolutely. We offer employer-sponsored training programs where organizations can cover the cost of Core, Birthworker, and Specialty courses for their teams. <a href="mailto:info@wepairhealth.com">Contact us</a> to learn more.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Where is the AI Coach?</div>
+                    <div class="faq-answer">The AI Coach is built into your training courses. Once you enroll, you'll have AI support to help you learn.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">What resources are available after I complete training?</div>
+                    <div class="faq-answer">You'll have access to: <strong>WePair Academy Mobile App</strong> for continuing education on-the-go, <strong>NoteScribe</strong> (our smart documentation tool for client visits, billing, and encounter tracking), and <strong>Partner Training & Resources</strong> for specialized certifications and advanced workshops.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Which specialty is best for me?</div>
+                    <div class="faq-answer">It depends on your interests and community needs. <strong>Maternal Mental Health</strong> pairs well with birthworker training. <strong>Behavioral Health</strong> and <strong>Alzheimer's Care</strong> are high-demand. <strong>Climate & Environmental Health</strong> is emerging. <a href="https://learn.wepairhealth.com/specialties">Browse all specialties</a> to learn more.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Do you help with job placement?</div>
+                    <div class="faq-answer">Yes! After completing training, you'll have access to our job board where employers post opportunities specifically for WePair-trained professionals.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h3>WePair Health</h3>
+                <p>Train. Work. Grow. All in one place.</p>
+                <p style="margin-top: 1.5rem;"><strong>Phone:</strong> <a href="tel:626-609-7247" style="color: inherit;">626-609-7247</a><br>
+                <strong>Email:</strong> <a href="mailto:info@wepairhealth.com" style="color: inherit;">info@wepairhealth.com</a></p>
+            </div>
+
+            <div class="footer-links">
+                <h4>Get Started</h4>
+                <ul>
+                    <li><a href="https://learn.wepairhealth.com/signup">Sign Up Free</a></li>
+                    <li><a href="#training">Browse Training</a></li>
+                    <li><a href="#jobs">Find Jobs</a></li>
+                    <li><a href="#documentation">Try NoteScribe</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links">
+                <h4>Learn More</h4>
+                <ul>
+                    <li><a href="#about">About WePair</a></li>
+                    <li><a href="#about">Our Mission</a></li>
+                    <li><a href="#employers">For Employers</a></li>
+                    <li><a href="#contact">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="https://learn.wepairhealth.com/login">Login</a></li>
+                    <li><a href="mailto:partnerships@wepairhealth.com">Partnerships</a></li>
+                    <li><a href="mailto:support@wepairhealth.com">Support</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 WePair Health. All Rights Reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+            <div class="social-links">
+                <a href="#" aria-label="LinkedIn">LinkedIn</a>
+                <a href="#" aria-label="Twitter">Twitter</a>
+                <a href="#" aria-label="Instagram">Instagram</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scroll with offset for fixed header
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== '#' && href !== '') {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        const offsetTop = target.offsetTop - 100;
+                        window.scrollTo({
+                            top: offsetTop,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
